@@ -5,96 +5,83 @@
 
   <style>
     body {
-      margin: 0;
-      background: #0b0b0f;
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      background:#0b0b0f;
+      color:white;
+      font-family:Arial;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      margin:0;
     }
 
-    /* MAIN CARD */
     .profile-card {
-      width: 340px;
-      background: linear-gradient(145deg, #1a1a1f, #121218);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-      transition: 0.3s ease;
+      width:340px;
+      background:#1a1a1f;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 10px 40px rgba(0,0,0,0.6);
     }
 
-    .profile-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 15px 60px rgba(255, 77, 109, 0.25);
-    }
-
-    /* IMAGE SECTION */
     .profile-img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      display: block;
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      display:block;
     }
 
-    /* CONTENT */
     .content {
-      padding: 18px;
+      padding:18px;
+    }
+
+    .tag {
+      display:inline-block;
+      background:#ff4d6d;
+      padding:4px 10px;
+      border-radius:12px;
+      font-size:11px;
+      margin-bottom:10px;
     }
 
     .name {
-      font-size: 24px;
-      font-weight: bold;
+      font-size:24px;
+      font-weight:bold;
     }
 
     .role {
-      color: #aaa;
-      font-size: 14px;
-      margin-bottom: 15px;
+      color:#aaa;
+      font-size:14px;
+      margin-bottom:15px;
     }
 
-    /* STATS */
     .stat {
-      margin: 12px 0;
-      font-size: 13px;
+      margin:12px 0;
+      font-size:13px;
     }
 
     .bar {
-      height: 8px;
-      background: #2a2a2f;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-top: 5px;
+      height:8px;
+      background:#2a2a2f;
+      border-radius:20px;
+      overflow:hidden;
+      margin-top:5px;
     }
 
     .fill {
-      height: 100%;
-      background: linear-gradient(90deg, #ff4d6d, #ff7a9a);
-      border-radius: 20px;
+      height:100%;
+      background:linear-gradient(90deg,#ff4d6d,#ff7a9a);
     }
 
-    /* BACK BUTTON */
     .back {
-      margin-top: 15px;
-      display: inline-block;
-      color: #ff4d6d;
-      text-decoration: none;
-      font-size: 13px;
+      display:inline-block;
+      margin-top:15px;
+      color:#ff4d6d;
+      text-decoration:none;
+      font-size:13px;
     }
 
     .back:hover {
-      text-decoration: underline;
-    }
-
-    /* SMALL LABEL (NETFLIX STYLE TAG) */
-    .tag {
-      display: inline-block;
-      background: #ff4d6d;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 11px;
-      margin-bottom: 10px;
+      text-decoration:underline;
     }
 
   </style>
@@ -104,7 +91,8 @@
 
 <div class="profile-card">
 
-  <img class="profile-img" src="../images/eunji.jpg">
+  <!-- IMAGE (2 levels up → images folder in root) -->
+  <img class="profile-img" src="../../images/eunji.jpg">
 
   <div class="content">
 
@@ -115,26 +103,21 @@
 
     <div class="stat">
       Loyalty
-      <div class="bar">
-        <div class="fill" style="width:70%"></div>
-      </div>
+      <div class="bar"><div class="fill" style="width:70%"></div></div>
     </div>
 
     <div class="stat">
       Drama
-      <div class="bar">
-        <div class="fill" style="width:40%"></div>
-      </div>
+      <div class="bar"><div class="fill" style="width:40%"></div></div>
     </div>
 
     <div class="stat">
       Charm
-      <div class="bar">
-        <div class="fill" style="width:90%"></div>
-      </div>
+      <div class="bar"><div class="fill" style="width:90%"></div></div>
     </div>
 
-    <a class="back"<a href="../../lovebound.html">← Back to Cast</a>
+    <!-- BACK BUTTON (2 levels up to root) -->
+    <a class="back" href="../../lovebound.html">← Back to Cast</a>
 
   </div>
 
