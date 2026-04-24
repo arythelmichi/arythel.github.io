@@ -1,32 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
- <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"> 
   <title>Love Bound</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<script>
-const cards = document.querySelectorAll(".card");
-const info = document.querySelector(".hover-info");
-
-cards.forEach(card => {
-  const hoverBox = card.querySelector(".hover-info");
-
-  card.addEventListener("mousemove", (e) => {
-    hoverBox.style.left = e.clientX + 15 + "px";
-    hoverBox.style.top = e.clientY + 15 + "px";
-    hoverBox.style.opacity = 1;
-  });
-
-  card.addEventListener("mouseleave", () => {
-    hoverBox.style.opacity = 0;
-  });
-});
-</script>
- 
 <body class="villa-bg">
 
 <h1>💘 Love Bound: LOVE OR MONEY Cast</h1>
@@ -40,9 +22,30 @@ cards.forEach(card => {
       <h3>Eunji</h3>
       <p>The Chill Engineer</p>
     </div>
+
+    <div class="hover-info">
+      <h3>Eunji</h3>
+      <p>Chill Engineer • High Charm</p>
+    </div>
   </a>
 
 </div>
+
+<script>
+document.querySelectorAll(".card").forEach(card => {
+  const hoverBox = card.querySelector(".hover-info");
+
+  card.addEventListener("mousemove", (e) => {
+    hoverBox.style.left = e.clientX + 15 + "px";
+    hoverBox.style.top = e.clientY + 15 + "px";
+    hoverBox.style.opacity = 1;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    hoverBox.style.opacity = 0;
+  });
+});
+</script>
 
 </body>
 </html>
