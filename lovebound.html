@@ -1,22 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Love Bound</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
 <body class="villa-bg">
 
-<h1>Love Bound Cast</h1>
+<!-- LOGO TITLE -->
+<div class="title-logo">
+  <img src="images/loveboundlogo.png" alt="Love Bound">
+</div>
 
-<!-- SEARCH BAR -->
 <div class="controls">
-
-  <input 
-    id="searchInput"
-    type="text"
-    placeholder="Search characters..."
-    onkeyup="filterCards()"
-  />
-
+  <input id="searchInput" type="text" placeholder="Search characters..." onkeyup="filterCards()">
 </div>
 
 <div class="grid" id="cardGrid">
 
-  <a class="card" href="cast/og/eunji.html" data-name="eujin eunji choi engineer aerospace flirt charm og">
+  <a class="card" href="cast/og/eunji.html"
+     data-name="eujin eunji choi engineer aerospace flirt charm og">
 
     <img src="images/eunji.jpg">
 
@@ -48,3 +54,4 @@ function filterCards() {
 </script>
 
 </body>
+</html>
