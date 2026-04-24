@@ -20,12 +20,11 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
   background: #0b0b0f;
   overflow-x: hidden;
 }
 
-/* extra fallback safety */
 html {
   background: #0b0b0f;
 }
@@ -42,34 +41,40 @@ body {
 }
 
 /* =========================
-   PROPER BACKGROUND BLUR LAYER
-   (THIS FIXES WHITE LEAK + AVOIDS BLURRING CONTENT)
+   FULL PAGE BACKDROP (FIXED PROPERLY)
+   - covers EVERYTHING
+   - no white leaks
+   - no content blur
 ========================= */
-
-.villa-bg {
-  min-height: 100vh;
-  min-height: 100dvh;
-
-  position: relative;
-  background: url('../images/villa.jpeg') no-repeat center center/cover;
-}
-
-/* 🔥 dark + blur overlay ONLY on background */
-.villa-bg::before {
+body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
 
   background: rgba(10,10,20,0.65);
   backdrop-filter: blur(6px);
 
   z-index: 0;
+  pointer-events: none;
 }
 
-/* keep all content above overlay */
-.villa-bg > * {
+/* everything above backdrop */
+.villa-bg,
+.lb-layout,
+.profile-layout {
   position: relative;
   z-index: 1;
+}
+
+/* =========================
+   VILLA BACKGROUND
+========================= */
+.villa-bg {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  background: url('../images/villa.jpeg') no-repeat center center/cover;
+  position: relative;
 }
 
 /* =========================
@@ -83,6 +88,7 @@ body {
 }
 
 .lb-left { width: 70%; }
+
 .lb-right {
   width: 30%;
   display: flex;
