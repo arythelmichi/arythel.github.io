@@ -18,7 +18,7 @@ body {
 }
 
 /* =========================
-   VILLA BACKGROUND (GLOBAL)
+   VILLA BACKGROUND (FIXED LAYERS)
 ========================= */
 .villa-bg {
   min-height: 100vh;
@@ -26,26 +26,28 @@ body {
   position: relative;
 }
 
+/* dark cinematic overlay */
 .villa-bg::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(10,10,20,0.65);
+  background: rgba(10,10,20,0.55);
+  z-index: 0;
 }
 
+/* everything above overlay */
 .villa-bg > * {
   position: relative;
   z-index: 1;
 }
 
 /* =========================
-   LOVEBOUND LAYOUT (2 COLUMN)
+   LOVEBOUND LAYOUT
 ========================= */
 .lb-layout {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
   padding: 40px;
 }
 
@@ -60,7 +62,7 @@ body {
 }
 
 .lb-logo {
-  width: 180px;
+  width: 170px;
   opacity: 0.9;
 }
 
@@ -97,7 +99,7 @@ body {
 }
 
 /* =========================
-   SLANTED CARD (IMAGE ONLY)
+   CARD SYSTEM (SAFE + STABLE)
 ========================= */
 .card {
   width: 240px;
@@ -119,13 +121,16 @@ body {
     0% 100%
   );
 
-  transition: 0.25s ease;
+  transition: transform 0.25s ease;
+
+  z-index: 2;
 }
 
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 /* hover lift */
@@ -134,7 +139,7 @@ body {
 }
 
 /* =========================
-   HOVER INFO (ONLY ON HOVER)
+   CARD HOVER INFO
 ========================= */
 .card-hover {
   position: absolute;
@@ -153,8 +158,8 @@ body {
 
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.65),
-    transparent 60%
+    rgba(0,0,0,0.55),
+    transparent 65%
   );
 }
 
@@ -180,7 +185,7 @@ body {
 }
 
 /* =========================
-   PROFILE LAYOUT (EUNJI PAGE)
+   PROFILE LAYOUT (EUNJI FIXED ROOT CAUSE)
 ========================= */
 .profile-layout {
   display: flex;
@@ -196,6 +201,10 @@ body {
   border-radius: 16px;
 
   backdrop-filter: blur(10px);
+
+  /* IMPORTANT FIX: prevents “cut shadow” issue */
+  position: relative;
+  z-index: 2;
 }
 
 /* =========================
@@ -242,45 +251,32 @@ body {
 }
 
 /* =========================
-   STATS BARS
+   PROFILE CARD (FIXED LIGHT BUBBLE)
 ========================= */
-.stat-block {
-  margin-top: 10px;
-}
-
-.stat-label {
-  font-size: 12px;
-  color: #aaa;
-  margin-bottom: 4px;
-}
-
-.bar {
-  height: 6px;
-  background: #1e1e24;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.fill {
-  height: 100%;
-  background: linear-gradient(90deg, #ff4fa3, #ffd36e);
-}
-
-/* =========================
-   PROFILE CONTENT
-========================= */
-.profile-main {
-  flex: 1;
-}
-
 .profile-card {
-  background: rgba(255,255,255,0.04);
+  flex: 1;
+
+  background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 14px;
 
   padding: 18px;
+
+  /* CRITICAL FIX: prevents “black cut shadow” */
+  position: relative;
+  z-index: 3;
+
+  backdrop-filter: blur(10px);
 }
 
+/* safety reset for weird inherited shadows */
+.profile-card * {
+  text-shadow: none !important;
+}
+
+/* =========================
+   TAGS + TEXT
+========================= */
 .tag {
   display: inline-block;
 
@@ -296,7 +292,7 @@ body {
 
 .name {
   font-size: 26px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cuturila', serif;
 
   background: linear-gradient(90deg, #ff4fa3, #ffd36e);
   -webkit-background-clip: text;
