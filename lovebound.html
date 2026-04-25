@@ -21,10 +21,13 @@
            placeholder="Search characters..."
            onkeyup="filterCards()">
 
+    <!-- ORIGINAL CAST -->
     <h2 class="subheading">LOVE OR MONEY: Original Cast</h2>
-
-    <!-- GRID (AUTO GENERATED) -->
     <div class="grid" id="cardGrid"></div>
+
+    <!-- WILD CARDS -->
+    <h2 class="subheading">LOVE OR MONEY: Wild Cards</h2>
+    <div class="grid" id="wildGrid"></div>
 
   </div>
 
@@ -37,7 +40,7 @@
 
 <script>
 /* =========================
-   CHARACTER DATA
+   ORIGINAL CAST
 ========================= */
 const characters = [
   {
@@ -47,7 +50,6 @@ const characters = [
     role: "Aerospace Engineer",
     tags: "eunji choi engineer aerospace korean og"
   },
-  
   {
     name: "Isaiah Bailiff",
     file: "cast/og/isaiah.html",
@@ -55,7 +57,6 @@ const characters = [
     role: "Firefighter",
     tags: "isaiah bailiff firefighter brazil og"
   },
-
   {
     name: "Enzo Rodriguez",
     file: "cast/og/enzo.html",
@@ -63,82 +64,102 @@ const characters = [
     role: "Paramedic",
     tags: "enzo rodriguez paramedic mexican og"
   },
-
-   {
+  {
     name: "Noah Acres",
     file: "cast/og/noah.html",
     img: "images/noahnotext.jpg",
     role: "Disc Jockey",
-    tags: "noah acres american california dj disc jockey og"
+    tags: "noah acres american california dj og"
   },
-
-   {
+  {
     name: "Arthur Wallace",
     file: "cast/og/arthur.html",
     img: "images/arthurnotext.png",
     role: "Luxury Real Estate Agent",
-    tags: "arthur wallace real estate agent luxury british og"
+    tags: "arthur wallace real estate british og"
   },
-
   {
     name: "Alessandra Fiore",
     file: "cast/og/alessandra.html",
     img: "images/alessandranotext.jpeg",
     role: "Boutique Owner",
-    tags: "alessandra fiore boutique italian og"
+    tags: "alessandra fiore italian boutique og"
   },
-
   {
-    name: "Isla dela Vega ",
+    name: "Isla dela Vega",
     file: "cast/og/isla.html",
     img: "images/islanotext.jpeg",
     role: "Jewelry Artisan",
-    tags: "isla dela vega jewelry artisan spanish og"
+    tags: "isla dela vega spanish artisan og"
   },
-
   {
     name: "Akari Ikeda",
     file: "cast/og/akari.html",
     img: "images/akarinotext.jpeg",
     role: "Runway Model",
-    tags: "akari ikeda runway model japanese og"
+    tags: "akari ikeda japanese model og"
   },
-
   {
     name: "Eden Zainab",
     file: "cast/og/eden.html",
     img: "images/edennotext.jpeg",
     role: "Business Consultant",
-    tags: "eden zainab lawyer sudanese arab og"
-  },
-
-  // 👉 COPY THIS BLOCK AND ADD YOUR OTHER 24 CHARACTERS
+    tags: "eden zainab sudanese consultant og"
+  }
 ];
 
 /* =========================
-   GENERATE CARDS
+   WILD CARDS
 ========================= */
-const grid = document.getElementById("cardGrid");
-
-characters.forEach(char => {
-  const card = document.createElement("a");
-  card.className = "card";
-  card.href = char.file;
-  card.setAttribute("data-name", char.tags);
-
-  card.innerHTML = `
-    <img src="${char.img}">
-    <div class="card-hover">
-      <h3>${char.name.toUpperCase()}</h3>
-      <p>${char.role}</p>
-    </div>
-  `;
-
-  grid.appendChild(card);
-});
+const wildcards = [
+  {
+    name: "Luca Moretti",
+    file: "cast/wild/luca.html",
+    img: "images/lucanotext.jpg",
+    role: "Professional Gambler",
+    tags: "luca moretti gambler italian wildcard"
+  },
+  {
+    name: "Mira Solis",
+    file: "cast/wild/mira.html",
+    img: "images/miranotext.jpg",
+    role: "Influencer",
+    tags: "mira solis influencer filipina wildcard"
+  }
+];
 
 /* =========================
-   SEARCH FILTER
+   GENERATE FUNCTION
+========================= */
+function generateCards(list, containerId) {
+  const container = document.getElementById(containerId);
+
+  list.forEach(char => {
+    const card = document.createElement("a");
+    card.className = "card";
+    card.href = char.file;
+    card.setAttribute("data-name", char.tags);
+
+    card.innerHTML = `
+      <img src="${char.img}">
+      <div class="card-hover">
+        <h3>${char.name.toUpperCase()}</h3>
+        <p>${char.role}</p>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+/* =========================
+   RUN GENERATION
+========================= */
+generateCards(characters, "cardGrid");
+generateCards(wildcards, "wildGrid");
+
+/* =========================
+   SEARCH (WORKS FOR BOTH)
 ========================= */
 function filterCards() {
   const input = document.getElementById("searchInput");
@@ -147,7 +168,7 @@ function filterCards() {
 
   cards.forEach(card => {
     const text = card.getAttribute("data-name");
-    card.style.display = text.includes(filter) ? "block" : "none";
+    card.style.display = text.includes(filter) ? "" : "none";
   });
 }
 </script>
