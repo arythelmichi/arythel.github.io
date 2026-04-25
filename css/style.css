@@ -380,3 +380,69 @@ body::before {
   text-decoration: none;
   font-size: 13px;
 }
+
+/* =========================
+   📱 MOBILE FIXES
+========================= */
+@media (max-width: 768px) {
+
+  /* Layout becomes vertical */
+  .lb-layout {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .lb-left,
+  .lb-right {
+    width: 100%;
+  }
+
+  .lb-right {
+    justify-content: center;
+  }
+
+  .lb-logo {
+    width: 140px;
+  }
+
+  /* Grid centers nicely */
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    justify-content: center;
+  }
+
+  /* Cards smaller */
+  .card {
+    width: 100%;
+    max-width: 220px;
+    height: 300px;
+    margin: 0 auto;
+  }
+
+  /* Profile layout STACKS */
+  .profile-layout {
+    flex-direction: column;
+    margin: 20px;
+    padding: 15px;
+  }
+
+  /* Infobox becomes full width */
+  .infobox {
+    width: 100%;
+  }
+
+  /* Text padding tighter */
+  .profile-card {
+    padding: 14px;
+  }
+
+  .name {
+    font-size: 22px;
+  }
+
+  /* Search full width */
+  #searchInput {
+    width: 100%;
+  }
+}
